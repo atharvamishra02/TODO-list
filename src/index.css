@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    --tw-bg-opacity: 1;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+    background-attachment: scroll; /* Changed from fixed for mobile performance */
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    scroll-behavior: smooth;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Ensure scroll attachment on mobile */
+        animation-duration: 20s; /* Slower animation for better mobile performance */
+    }
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #64748b, #475569);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #475569, #334155);
+}
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+.glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Bubble Styles */
+.bubble {
+    transition: all 0.3s ease;
+}
+
+.bubble:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 
+        inset 0 0 30px rgba(255, 255, 255, 0.3),
+        0 0 30px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Enhanced container backgrounds */
+.bubbles-container {
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+}
+
+/* Animated gradient overlay */
+@keyframes gradient-shift {
+    0%, 100% { 
+        background-position: 0% 50%;
+    }
+    50% { 
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-animation {
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+/* Sparkle effect for bubbles */
+@keyframes sparkle {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Enhanced input and button styles */
+input[type="text"]:focus {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(0.95) !important;
+}
+
+/* Glass morphism enhancement */
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Animated checkmark */
+@keyframes checkmark {
+    0% { transform: scale(0) rotate(45deg); }
+    50% { transform: scale(1.2) rotate(45deg); }
+    100% { transform: scale(1) rotate(45deg); }
+}
+
+.checkmark {
+    animation: checkmark 0.3s ease-in-out;
+}
+
+/* Glow effects */
+.glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+.glow-purple {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+}
+
+.glow-pink {
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+}
+
+/* Custom scrollbar for todo list */
+.todos::-webkit-scrollbar {
+    width: 6px;
+}
+
+.todos::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.todos::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(147, 51, 234, 0.8));
+    border-radius: 3px;
+}
+
+.todos::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 1), rgba(147, 51, 234, 1));
+}
+
+/* Performance optimizations */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Smooth scrolling optimizations */
+.container {
+    will-change: transform;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Reduce animations on mobile for better performance */
+    .bubble {
+        animation-duration: 12s !important;
+    }
+    
+    /* Better touch targets */
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    input[type="checkbox"] {
+        min-height: 20px;
+        min-width: 20px;
+    }
+    
+    /* Prevent zoom on input focus */
+    input {
+        font-size: 16px !important;
+    }
+    
+    /* Optimize backdrop-filter for mobile */
+    .backdrop-blur-lg {
+        backdrop-filter: blur(8px) !important;
+    }
+    
+    .backdrop-blur-md {
+        backdrop-filter: blur(6px) !important;
+    }
+    
+    .backdrop-blur-sm {
+        backdrop-filter: blur(4px) !important;
+    }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .bubble {
+        animation: none !important;
+    }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    .shadow-2xl {
+        filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    }
+}
